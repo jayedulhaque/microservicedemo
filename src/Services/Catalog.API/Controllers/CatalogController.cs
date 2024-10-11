@@ -35,20 +35,20 @@ namespace Catalog.API.Controllers
             }
         }
 
-        //[HttpGet]
-        //[ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
-        //public IActionResult GetByCategory(string category)
-        //{
-        //    try
-        //    {
-        //        var products = _productManager.GetByCategory(category);
-        //        return CustomResult("Data load sucessfully.", products);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return CustomResult($"{ex.Message}", HttpStatusCode.BadRequest);
-        //    }
-        //}
+        [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
+        public IActionResult GetByCategory(string category)
+        {
+            try
+            {
+                var products = _productManager.GetByCategory(category);
+                return CustomResult("Data load sucessfully.", products);
+            }
+            catch (Exception ex)
+            {
+                return CustomResult($"{ex.Message}", HttpStatusCode.BadRequest);
+            }
+        }
 
         [HttpGet]
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
