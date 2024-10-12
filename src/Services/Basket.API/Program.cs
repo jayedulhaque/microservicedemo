@@ -1,4 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetConnectionString("BasketDB");
+});
 
 // Add services to the container.
 
